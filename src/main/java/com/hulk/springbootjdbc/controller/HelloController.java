@@ -1,6 +1,7 @@
 package com.hulk.springbootjdbc.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -23,5 +24,13 @@ public class HelloController {
         final List<Map<String, Object>> list =  jdbcTemplate.queryForList("select * FROM department");
 
         return list.get(0);
+    }
+
+    @ResponseBody
+    @GetMapping("/json")
+    public JSONObject json(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("value","hulk");
+        return jsonObject;
     }
 }
