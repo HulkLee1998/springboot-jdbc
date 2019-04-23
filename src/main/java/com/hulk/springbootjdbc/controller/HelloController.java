@@ -33,4 +33,11 @@ public class HelloController {
         jsonObject.put("value","hulk");
         return jsonObject;
     }
+
+
+
+    @GetMapping("/api")
+    public String getApi(){
+        return "laoxu.html";
+    }
 }
